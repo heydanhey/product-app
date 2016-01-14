@@ -1,0 +1,14 @@
+
+
+<div id="wrapper">
+
+<% @products.each do |product| %>
+  <h3> <%= product.name %> </h3>
+  <img src=<%= product.image %> alt=<%= product.name %> >
+  <h3> Price: <%= product.price %> </h3>
+  <h3> <%= product.description %> </h3>
+  <p> Product ID: <%= product.id %> </p>
+  <h3> ------- </h3>
+<% end %>
+
+</div>

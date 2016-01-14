@@ -1,0 +1,13 @@
+
+
+<div id="home">
+
+  <% @products.each do |product| %>
+    <img src=<%= product.image %> alt=<%= product.name %> >
+    <p> <%= product.name %>  - Price: <%= product.price %> </p>
+    <p> Description: </p>
+    <p> <%= product.description %> </p>
+  <% end %>
+
+  </div>
+

@@ -4,23 +4,74 @@
 
 body {
   font: Helvetica, sans-serif;
-  color: #333;
+  background-color: black;
   margin-top: 0px;
 }
 
-header {
-  background-color: yellow;
-  float: left;
-  margin: 0 0 50px 0;
-  padding: 5px 0 30px 0;
-  width: 100%;
+nav a {
+  text-decoration: none; 
 }
 
-#wrapper {
-  max-width: 940px;
-  margin-top: 50px;
+header {
+  max-width: 800px;
   margin: auto;
-  padding: 0 5%;
+  background-color: white;
+  padding: 0 0 7px 0;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+
+}
+
+.jumbotron {
+  background-image: url("http://www.heyelevator.com/acltc/solarsys.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  color: white;
+  width: 100%;
+  margin: auto;
+  max-width: 800px;
+}
+
+/****************
+NAVIGATION BAR
+****************/
+
+nav {
+  text-align: center;
+  max-width: 800px;
+  padding: 10px;
+  margin: auto;
+  background: #4D4D4D; 
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block; 
+}
+
+nav a {
+  color: white;
+  font-weight: 800;
+  padding: 15px 25px;  
+}
+
+/* nav link */
+nav a, nav a:visited {
+  color: #fff;
+}
+
+/* selected nav link */
+nav a.selected, nav a:hover {
+  color: #98C0CC;
 }
 
 #logo {
@@ -28,21 +79,71 @@ header {
   margin: 0;
 }
 
-img {
-  display: block;
-  max-width: 350px;
-  margin: 0 auto 30px;
-  padding: 15px 0 0 0;
-}
-
-#home img {
-  display: block;
-  float: center;
-  max-width: 200px;
-  margin: 0 auto 30px;
-  padding: 15px 0 0 0;
-}
-
 #home p {
-  text-align: center;
+  text-align: left;
+  padding: 5px
 }
+
+#home h3 {
+  text-align: left;
+  padding: 5px
+}
+
+#home div {
+  width: 500px;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
+}
+
+#box {
+  background-color: white;
+  margin: auto;
+  max-width: 800px;
+}
+
+#box img {
+  display: block;
+  margin: auto;
+}
+
+#text {
+  max-width: 70%;
+  margin: auto;
+  padding: 30px 30px 30px 30px;
+}
+
+
+/****************
+PAGE: SHOW ALL (No Bootstrap)
+****************/
+
+#gallery {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#gallery li {
+  float: left;
+  width: 45%;
+  margin: 2.5%;
+  background-color: white;
+  color: #bdc3c7;
+  border-style: solid;
+  border-radius: 5%;
+  padding: 10px 10px 10px 10px;
+  min-height: 525px;
+}
+
+#gallery li a p {
+  margin: 0;
+  padding: 5%;
+  font-size: 0.75em;
+  color: #bdc3c7;
+}
+
+#gallery img {
+  display: block;
+  margin: auto;
+}
+

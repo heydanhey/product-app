@@ -1,13 +1,21 @@
 
-
+<div id="box">
 <div id="home">
-
   <% @products.each do |product| %>
-    <img src=<%= product.image %> alt=<%= product.name %> >
-    <p> <%= product.name %>  - Price: <%= product.price %> </p>
-    <p> Description: </p>
-    <p> <%= product.description %> </p>
-  <% end %>
-
+  <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <a href="products/<%= product.id %>"><img src=<%= product.image %> alt=<%= product.name %> ></a>
+      <div class="caption">
+        <h3><%= product.name %></h3>
+        <p><%= product.description %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Buy: $<%= product.price %></a> <a href="#" class="btn btn-default" role="button">More Details</a></p>
+      </div>
+    </div>
   </div>
+</div>
+  <% end %>
+</div>
+</div>
+
 

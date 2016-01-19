@@ -1,11 +1,9 @@
-  <div id="box">
-    <ul id="gallery">
+
+    <ul class="gal">
     <% @products.each do |product| %>
         <a href="products/<%= product.id %>"><li><img src=<%= product.image %> alt=<%= product.name %> > </a>
         <h3><%= product.name %></h3>
         <p><%= product.description %></p>
-        <h4>$ <%= product.price %></h4>
-        <h5><a data-confirm="Are You Sure?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow">Delete</a></h5></li>
+        <h4>$ <%= product.price %></h4></li>
     <% end %>
     </ul>
-  </div>

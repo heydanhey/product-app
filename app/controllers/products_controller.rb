@@ -24,6 +24,9 @@ class ProductsController < ApplicationController
                               price: params[:price],
                               image: params[:image],
                               description: params[:description]})
+
+    flash[:success] = "Product Created"
+    redirect_to "/"
   end
 
   def edit
@@ -38,10 +41,15 @@ class ProductsController < ApplicationController
                               price: params[:price],
                               image: params[:image],
                               description: params[:description]})
+    flash[:success] = "Product Updated"
+    redirect_to "/products/#{@product.id}"
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+
+    flash[:warning] = "Product Destroyed"
+    redirect_to :action => :index, status: 303
   end
 end

@@ -17,19 +17,29 @@
 
 <nav>
   <ul>
-    <li><a href="/products">Shop</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/products/new">New</a></li>
+    <li><a class="none" href="/products">Shop</a></li>
+    <li><a class="none" href="/about">About</a></li>
+    <li><a class="none" href="/contact">Contact</a></li>
+    <li><a class="none" href="/products/new">New</a></li>
   </ul>
 </nav>
 
 
-
-
 <body>
+
+<div id="box">
+
+  <div class="container">
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= message %>
+    </div>
+    <% end %>
+  </div>
 
 <%= yield %>
 
+</div>
 </body>
 </html>

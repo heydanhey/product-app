@@ -1,15 +1,19 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+a.none {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 800px;
+  margin-bottom: 0px;
+}
 
 body {
   font: Helvetica, sans-serif;
   background-color: black;
   margin-top: 0px;
-}
-
-nav a {
-  text-decoration: none; 
 }
 
 header {
@@ -117,32 +121,32 @@ nav a.selected, nav a:hover {
 PAGE: SHOW ALL (No Bootstrap)
 ****************/
 
-#gallery {
+.gal {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#gallery li {
+.gal li {
   float: left;
   width: 45%;
   margin: 2.5%;
   background-color: white;
-  color: #bdc3c7;
+  color: black;
   border-style: solid;
   border-radius: 5%;
   padding: 10px 10px 10px 10px;
   min-height: 525px;
 }
 
-#gallery li a p {
+.gal li a p {
   margin: 0;
   padding: 5%;
   font-size: 0.75em;
   color: #bdc3c7;
 }
 
-#gallery img {
+.gal img {
   display: block;
   margin: auto;
 }

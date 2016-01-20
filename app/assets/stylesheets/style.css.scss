@@ -5,12 +5,25 @@ body {
   margin-top: 0px;
 }
 
-.list-view {
+.col-fixed {
   background-color: white;
-  margin: 5px;
-  max-width: 350px;
-  min-height: 520px;
-  max-height: 520px;
+  margin: 25px 50px;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 525px;
+  max-height: 525px;
 }
 
+/* centered columns styles */
+.row-centered {
+    text-align: center;
+}
 
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+}

@@ -1,14 +1,25 @@
+<div class="container">
+
 
   <div class="row">
-  <% @products.each do |product| %>
-    <div class="col-md-6 list-view">
-      <a href="products/<%= product.id %>"><img src=<%= product.image %> alt=<%= product.name %> ></a>
-        <h3><%= product.name %></h3>
-        <p><%= product.description %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Buy: $<%= product.price %></a> <a href="#" class="btn btn-default" role="button">More Details</a></p>
-        </div>
-  <% end %>
+
+
+    <% @products.each do |product| %>
+
+
+      <div class="col-md-3 col-fixed">
+
+
+        <a href="products/<%= product.id %>"><img src=<%= product.image %> alt=<%= product.name %> ></a>
+          <h3><%= product.name %></h3>
+          <p><%= product.description %></p>
+          <p><a href="#" class="btn btn-primary" role="button">Buy: $<%= product.price %></a> <a href="#" class="btn btn-default" role="button">More Details</a></p>
+
+      </div>
+    <% end %>
   </div>
+
+</div>
 
 
 

@@ -8,6 +8,7 @@ a.none {
 .container {
   max-width: 800px;
   margin-bottom: 0px;
+  
 }
 
 header {
@@ -20,7 +21,6 @@ header {
 .logo {
   display: block;
   margin: auto;
-
 }
 
 .jumbotron {
@@ -44,6 +44,7 @@ nav {
   padding: 10px;
   margin: auto;
   background: #4D4D4D; 
+  font-size: 25px;
 }
 
 nav ul {
@@ -75,22 +76,6 @@ nav a.selected, nav a:hover {
 #logo {
   text-align: center;
   margin: 0;
-}
-
-#home p {
-  text-align: left;
-  padding: 5px
-}
-
-#home h3 {
-  text-align: left;
-  padding: 5px
-}
-
-#home div {
-  width: 500px;
-  margin: auto;
-  padding: 10px 10px 10px 10px;
 }
 
 #box {

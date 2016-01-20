@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/' => 'products#home'
+  get '/' => 'products#index'
+  get '/test' => 'products#home'
   get '/about' => 'products#about'
   get '/products' => 'products#index'
   get '/products/new' => 'products#new'

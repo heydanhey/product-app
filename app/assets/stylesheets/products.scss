@@ -10,12 +10,6 @@ a.none {
   margin-bottom: 0px;
 }
 
-body {
-  font: Helvetica, sans-serif;
-  background-color: black;
-  margin-top: 0px;
-}
-
 header {
   max-width: 800px;
   margin: auto;
@@ -100,7 +94,7 @@ nav a.selected, nav a:hover {
 }
 
 #box {
-  background-color: white;
+  background-color: gray;
   margin: auto;
   max-width: 800px;
 }
@@ -114,6 +108,13 @@ nav a.selected, nav a:hover {
   max-width: 70%;
   margin: auto;
   padding: 30px 30px 30px 30px;
+  background-image: url(paisley.png);
+}
+
+#show_image {
+  max-width: 70%;
+  background-color: white;
+  margin: auto;
 }
 
 

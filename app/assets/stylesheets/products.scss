@@ -8,7 +8,7 @@ a.none {
 .container {
   max-width: 800px;
   margin-bottom: 0px;
-  
+
 }
 
 header {
@@ -80,6 +80,7 @@ nav a.selected, nav a:hover {
 
 #box {
   background-color: gray;
+  background-image: url("dark_embroidery.png");
   margin: auto;
   max-width: 800px;
 }
@@ -89,11 +90,15 @@ nav a.selected, nav a:hover {
   margin: auto;
 }
 
-#text {
+#show-text {
   max-width: 70%;
   margin: auto;
   padding: 30px 30px 30px 30px;
-  background-image: url(paisley.png);
+  background-image: url("swirl_pattern.png");
+}
+
+#show-text h5{
+  text-align: right;
 }
 
 #show_image {

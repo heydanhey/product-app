@@ -1,9 +1,22 @@
+<div class="container">
 
-    <ul class="gal">
+
+  <div class="row">
+
+
     <% @products.each do |product| %>
-        <a href="products/<%= product.id %>"><li><img src=<%= product.image %> alt=<%= product.name %> > </a>
-        <h3><%= product.name %></h3>
-        <p><%= product.description %></p>
-        <h4>$ <%= product.price %></h4></li>
+
+
+      <div class="col-md-3 col-fixed">
+
+
+        <a href="products/<%= product.id %>"><img src=<%= product.image %> alt=<%= product.name %> ></a>
+          <h3><%= product.name %></h3>
+          <p><%= product.description %></p>
+          <p><a href="#" class="btn btn-primary" role="button">Buy: $<%= product.price %></a> <a href="#" class="btn btn-default" role="button">More Details</a></p>
+
+      </div>
     <% end %>
-    </ul>
+  </div>
+
+</div>

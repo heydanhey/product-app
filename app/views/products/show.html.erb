@@ -2,10 +2,13 @@
   <img src=<%= @product.image %> alt=<%= @product.name %> >
 </div>
 
-  <div id="text">
+  <div id="show-text">
     <h3><%= @product.name %></h3>
     <p><%= @product.description %></p>
-    <p>$ <%= @product.price %></p>
-    <p><%= link_to "Edit", "/products/#{@product.id}/edit" %>
-      <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are You Sure"} %> </p>
+    <p><%= @product.in_stock? %></p>
+    <p>$ <%= @product.sale_message %></p>
+    <p>Tax: <%= @product.tax %></p>
+    <p>Total: <%= @product.total %></p>
+    <h5><%= link_to "Edit", "/products/#{@product.id}/edit" %>
+      <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are You Sure"} %> </h5>
   </div>

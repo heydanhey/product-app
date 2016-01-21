@@ -9,18 +9,22 @@ class Product < ActiveRecord::Base
   end
 
   def tax
-    "$#{price.to_f * 0.09}"
+    "$%.2f" % (price.to_f * 0.09)
   end
 
   def total
-    " $#{price.to_f + (price.to_f * 0.09)}"
+    "$#{price.to_f + (price.to_f * 0.09)}"
+  end
+
+  def price_display
+    '$%.2f' % price
   end
 
   def in_stock?
-    if in_stock == false
-      "Yes, it's currently in stock!"
-    else
+    if inventory <= 0
       "Sorry we're all out."
+    else
+      "This product is in stock! Amount in inventory: #{inventory}"
     end
   end
 

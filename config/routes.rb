@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get '/' => 'products#index'
-  get '/test' => 'products#home'
   get '/about' => 'products#about'
   get '/products' => 'products#index'
   get '/products/new' => 'products#new'
@@ -8,5 +7,7 @@ Rails.application.routes.draw do
   get '/products/:id' => 'products#show'
   get 'products/:id/edit' => 'products#edit'
   patch 'products/:id' => 'products#update'
-  delete 'products/:id' =>'products#destroy'
+  delete 'products/:id' => 'products#destroy'
+  patch '/products/:id/buy' => 'products#buy'
+  get '/test' => 'products#home'
 end

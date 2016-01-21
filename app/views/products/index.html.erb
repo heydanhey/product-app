@@ -1,19 +1,15 @@
 <div class="container">
 
-
   <div class="row">
-
 
     <% @products.each do |product| %>
 
-
       <div class="col-md-3 col-fixed">
-
 
         <a href="products/<%= product.id %>"><img src=<%= product.image %> alt=<%= product.name %> ></a>
           <h3><%= product.name %></h3>
           <p><%= product.description %></p>
-          <p><a href="#" class="btn btn-primary" role="button">Buy: $<%= product.price %></a> <a href="#" class="btn btn-default" role="button">More Details</a></p>
+          <p><a href="products/<%= product.id %>" class="btn btn-primary" role="button"><%= product.price_display %></a> <a href="https://en.wikipedia.org/wiki/<%= product.name %>_(planet)" class="btn btn-default" role="button">More Details</a></p>
 
       </div>
     <% end %>

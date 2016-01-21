@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
                               price: params[:price],
                               image: params[:image],
                               description: params[:description],
+                              inventory: params[:inventory],
                               in_stock: params[:in_stock]})
 
     flash[:success] = "Product Created"
@@ -42,7 +43,14 @@ class ProductsController < ApplicationController
                               price: params[:price],
                               image: params[:image],
                               description: params[:description],
-                              in_stock: params[:in_stock]})
+                              inventory: params[:inventory]})
+
+    if params[:inventory].to_i <= 0
+      @product.update({in_stock: false})
+    else
+      @product.update({in_stock: true})
+    end
+
     flash[:success] = "Product Updated"
     redirect_to "/products/#{@product.id}"
   end
@@ -54,4 +62,17 @@ class ProductsController < ApplicationController
     flash[:warning] = "Product Destroyed"
     redirect_to :action => :index, status: 303
   end
+
+  def buy
+    @product = Product.find(params[:id])
+    @product.update({inventory: @product.inventory -= 1})
+
+    if @product.inventory <= 0
+      @product.update({in_stock: false})
+    end
+
+    flash[:success] = "Thank you! Amount of #{@product.name} remaining in inventory is: #{@product.inventory}"
+    redirect_to '/'
+  end
+
 end

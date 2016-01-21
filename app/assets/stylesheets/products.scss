@@ -94,11 +94,15 @@ nav a.selected, nav a:hover {
   max-width: 70%;
   margin: auto;
   padding: 30px 30px 30px 30px;
-  background-image: url("swirl_pattern.png");
+  background-color: #E0E0E0;
 }
 
 #show-text h5{
   text-align: right;
+}
+
+#show-text h4{
+  color: #286090;
 }
 
 #show_image {
@@ -107,6 +111,18 @@ nav a.selected, nav a:hover {
   margin: auto;
 }
 
+.splash nav a {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0);
+  border-radius: 0;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.125rem;
+  margin: 0 10px;
+  padding: 10px 16px 24px;
+  width: 30%;
+}
 
 /****************
 PAGE: SHOW ALL (No Bootstrap)

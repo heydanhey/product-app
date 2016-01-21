@@ -1,14 +1,25 @@
-<div id="show_image">
-  <img src=<%= @product.image %> alt=<%= @product.name %> >
-</div>
+<div id="show_image"><img src=<%= @product.image %> alt=<%= @product.name %> ></div>
 
   <div id="show-text">
+
     <h3><%= @product.name %></h3>
     <p><%= @product.description %></p>
-    <p><%= @product.in_stock? %></p>
-    <p>$ <%= @product.sale_message %></p>
+    <p>Price: <%= @product.price_display %></p>
     <p>Tax: <%= @product.tax %></p>
-    <p>Total: <%= @product.total %></p>
-    <h5><%= link_to "Edit", "/products/#{@product.id}/edit" %>
-      <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are You Sure"} %> </h5>
+    <p>------------------------</p>
+    <h4>Total: <%= @product.total %></h4>
+    <h4><%= @product.in_stock? %></h4>
+    
+    <% if @product.in_stock %>
+      <p><%= link_to "Buy Now!", "/products/#{@product.id}/buy", method: :patch, :class => "btn btn-primary", :role => "button" %></p>
+    <% end %>
+
+    <h5>
+    <a href="https://en.wikipedia.org/wiki/<%= @product.name %>_(planet)" class="btn btn-default" role="button">More Details</a>
+
+    <a href="/products/<%= @product.id %>/edit" class="btn btn-default" role="button">Edit</a>
+
+    <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are You Sure"}, :class => "btn btn-default", :role => "button" %>
+    </h5>
+
   </div>

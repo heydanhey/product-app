@@ -26,9 +26,10 @@
     <%=text_field_tag :description, @product.description %>
   </div>
 
+
   <div>
-    <%=label_tag :in_stock %>
-    <%=radio_button_tag(:in_stock, "Yes") %>
+    <%=label_tag :inventory %>
+    <%=text_field_tag :inventory, @product.inventory %>
   </div>
 
   <%= submit_tag "Send" %>

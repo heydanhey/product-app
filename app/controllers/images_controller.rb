@@ -1,5 +1,8 @@
 class ImagesController < ApplicationController
   def new
+    if params[:auto]
+      @product = Product.find(params[:auto])
+    end
   end
 
   def create

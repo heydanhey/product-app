@@ -56,9 +56,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-
-    @product = Product.d
-
+    @product = Product.find(params[:id])
     @product.update({name: params[:name],
                               price: params[:price],
                               description: params[:description],
@@ -87,7 +85,7 @@ class ProductsController < ApplicationController
     @product.update({inventory: @product.inventory -= 1})
 
     if @product.inventory <= 0
-      @product.update({in_stock: false})
+      @product.update({in_stock: 0})
     end
 
     flash[:success] = "Thank you! Amount of #{@product.name} remaining in inventory is: #{@product.inventory}"

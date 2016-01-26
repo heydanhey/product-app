@@ -2,6 +2,26 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    if params[:sort_up]
+      @products = Product.order(:price)
+    end
+
+    if params[:sort_down]
+      @products = Product.order(price: :desc)
+    end
+
+    if params[:discount]
+      @products = Product.where("price < ?", params[:discount])
+    end
+
+    if params[:random]
+      @product = Product.order("RAND()").first
+
+      # redirect_to "/products/#{product.id}"
+      render :show
+    end
+
   end
 
   def show_all
@@ -37,11 +57,10 @@ class ProductsController < ApplicationController
 
   def update
 
-    @product = Product.find(params[:id])
+    @product = Product.d
 
     @product.update({name: params[:name],
                               price: params[:price],
-                              image: params[:image],
                               description: params[:description],
                               inventory: params[:inventory]})
 
@@ -73,6 +92,11 @@ class ProductsController < ApplicationController
 
     flash[:success] = "Thank you! Amount of #{@product.name} remaining in inventory is: #{@product.inventory}"
     redirect_to '/'
+  end
+
+  def search
+    @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    render :index
   end
 
 end

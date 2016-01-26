@@ -1,0 +1,11 @@
+
+
+<div class="row">
+<% @suppliers.each do |supplier| %>
+  <div class="col-md-3 col-fixed">
+    <p> <%= link_to "#{supplier.name}", "/suppliers/#{supplier.id}" %></p>
+    <p> <%= supplier.email %> </p>
+    <p> <%= supplier.phone %> </p>
+  </div>
+<% end %>
+</div>

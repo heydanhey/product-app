@@ -2,7 +2,7 @@
 
 <div class="row">
 <% @suppliers.each do |supplier| %>
-  <div class="col-md-3 col-fixed">
+  <div class="col-md-6 col-fixed-2">
     <p> <%= link_to "#{supplier.name}", "/suppliers/#{supplier.id}" %></p>
     <p> <%= supplier.email %> </p>
     <p> <%= supplier.phone %> </p>

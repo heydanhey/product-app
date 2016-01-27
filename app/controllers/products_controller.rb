@@ -17,11 +17,9 @@ class ProductsController < ApplicationController
 
     if params[:random]
       @product = Product.order("RAND()").first
-
       # redirect_to "/products/#{product.id}"
       render :show
     end
-
   end
 
   def show_all
@@ -42,7 +40,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create({name: params[:name],
                               price: params[:price],
-                              image: params[:image],
+                              supplier_id: params[:supplier][supplier_id],
                               description: params[:description],
                               inventory: params[:inventory],
                               in_stock: params[:in_stock]})

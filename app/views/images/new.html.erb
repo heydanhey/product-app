@@ -1,23 +1,23 @@
 <div id="box">
 
-<div id="show-text">
+  <div id="show-text">
 
-<h1>Add new image</h1>
+    <h1>Add new image</h1>
 
-<%=form_tag '/images', method: :post do %>
+      <%=form_tag '/images', method: :post do %>
 
-  <div class="input-group">
-    <%=label_tag :product_id %>
-    <%=text_field_tag :product_id, @product.id, class: "form-control" %>
-  </div>
+        <div class="input-group">
+          <%=label_tag :product_id %>
+          <%=text_field_tag :product_id, @product.id, class: "form-control" %>
+        </div>
 
-  <div class="input-group">
-    <%=label_tag :image %>
-    <%=text_field_tag :image, nil, class: "form-control" %>
-  </div>
+        <div class="input-group">
+          <%=label_tag :image %>
+          <%=text_field_tag :image, nil, class: "form-control" %>
+        </div>
 
-  <%= submit_tag "Send", class: "input-group btn btn-default" %>
+        <%= submit_tag "Send", class: "input-group btn btn-default" %>
 
-  <% end %>
-  </div>
-  </div>
+      <% end %>
+    </div>
+</div>

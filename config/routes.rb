@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get '/' => 'products#index'
+
+  devise_for :users
+  root to: "products#index"
   get '/about' => 'products#about'
   get '/products' => 'products#index'
   get '/products/new' => 'products#new'

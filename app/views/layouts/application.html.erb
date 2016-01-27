@@ -8,7 +8,7 @@
 </head>
 
 <header>
-<img src="http://www.heyelevator.com/acltc/planetzon.jpg" class="logo">
+  <img src="http://www.heyelevator.com/acltc/planetzon.jpg" class="logo">
 </header>
 
 <div class="jumbotron">
@@ -20,33 +20,36 @@
     <li><a class="none" href="/products">Shop</a></li>
     <!-- <li><a class="none" href="/about">About</a></li>
     <li><a class="none" href="/contact">Contact</a></li> -->
-    <li><a class="none" href="/products?sort_up=price">Sort Up</a></li>
+    <% if current_user %>
+      <li><%= current_user.email %></li>
+      <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+    <% else %>
+      <li><a href="/users/sign_in">Log In</a></li>
+      <li><a href="/users/sign_up">Sign Up</a></li>
+    <% end %>  
     <li><a class="none" href="/products?sort_down=price">Sort Down</a></li>
     <li><a class="none" href="/products?discount=10.00">Discount</a></li>
     <li><a class="none" href="/products?random=id">Random</a></li>
-
     <li><a class="none" href="/products/new">New</a></li>
 
   </ul>
 </nav>
 
-
 <body>
-
 <div id="box">
-
   <div class="container">
-  <% flash.each do |name, message| %>
-    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= message %>
-    </div>
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= message %>
+      </div>
+
     <% end %>
   </div>
 
 <%= yield %>
-
 </div>
+
 <nav>
   <h6> Thanks for shopping celestial bodies at Pl*netZ(0)n! </h6>
 </nav>

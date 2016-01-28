@@ -10,21 +10,51 @@
     <p>Price: <%= number_to_currency(@product.price) %></p>
     <p>Tax: <%= @product.tax %></p>
     <h4>Total: <%= @product.total %></h4>
-    <p>Supplier Name: <%= @product.supplier.name %></p>
-    <p><%= @product.in_stock? %></p>
+    <p>Supplier Name: <%= @product.supplier.name %>, Inventory: <%= @product.inventory %></p>
 
-    <% if @product.in_stock == true %>
-      <p><%= link_to "Buy Now!", "/products/#{@product.id}/buy", method: :patch, :class => "btn btn-primary" %></p>
+    <% if @product.in_stock? %>
+
+        <% if current_user %>
+
+            <%=form_tag '/orders', method: :post do %>
+
+              <div class="input-group">
+                <%=label_tag :quantity %>
+                <%=text_field_tag :quantity, nil, class: "form-control" %>
+              </div>
+
+              <div class="input-group">
+                <%=hidden_field_tag :product_id, @product.id, class: "form-control" %>
+              </div>
+              <div class="input-group">
+                <%=hidden_field_tag :subtotal, @product.price, class: "form-control" %>
+              </div>
+              <div class="input-group">
+                <%=hidden_field_tag :tax, @product.tax, class: "form-control" %>
+              </div>
+              <div class="input-group">
+                <%=hidden_field_tag :total, @product.total, class: "form-control" %>
+              </div>
+            
+              <p><%= submit_tag "Buy Now", :class => "btn btn-primary", :role => "button" %></p>
+
+            <% end %>
+        <% else %>
+            <h4> Please <a href="/users/sign_in">login</a> to purchase product. </h4>
+        <% end %>
+    <% else %>
+        <p> SOLD OUT! </p>
     <% end %>
-    
-    <h5>
-    <a href="https://en.wikipedia.org/wiki/<%= @product.name %>_(planet)" class="btn btn-default" role="button">More Details</a>
 
-    <a href="/products/<%= @product.id %>/edit" class="btn btn-default" role="button">Edit Info</a>
+    <% if current_user %>
+        <h5>
+            <a href="https://en.wikipedia.org/wiki/<%= @product.name %>_(planet)" class="btn btn-default" role="button">More Details</a>
 
-    <%= link_to "Add New Image", "/images/new?auto=#{@product.id}", class: "btn btn-default" %>
+            <a href="/products/<%= @product.id %>/edit" class="btn btn-default" role="button">Edit Info</a>
 
-    <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are You Sure"}, :class => "btn btn-default", :role => "button" %>
-    </h5>
+            <%= link_to "Add New Image", "/images/new?auto=#{@product.id}", class: "btn btn-default" %>
 
+            <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data:{confirm: "Are You Sure"}, :class => "btn btn-default", :role => "button" %>
+        </h5>
+    <% end %>
   </div>

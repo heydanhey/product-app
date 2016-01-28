@@ -19,7 +19,7 @@
   <ul>
     <li><a class="none" href="/products">Shop</a></li>
     <!-- <li><a class="none" href="/about">About</a></li>
-    <li><a class="none" href="/contact">Contact</a></li> -->
+    <li><a class="none" href="/contact">Contact</a>< /li> -->
     <% if current_user %>
       <li><%= current_user.email %></li>
       <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
@@ -46,8 +46,10 @@
 
     <% end %>
   </div>
+  <div class="container">
 
 <%= yield %>
+</div>
 </div>
 
 <nav>

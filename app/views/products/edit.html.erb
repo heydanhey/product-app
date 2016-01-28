@@ -6,23 +6,23 @@
 
 <%=form_tag "/products/#{@product.id}", method: :patch do %>
 
-  <div>
+  <div class="field">
     <%=label_tag :name %>
     <%=text_field_tag :name, @product.name %>
   </div>
 
-  <div>
+  <div class="field">
     <%=label_tag :price %>
     <%=text_field_tag :price, @product.price %>
   </div>
 
-  <div>
+  <div class="field">
     <%=label_tag :description %>
     <%=text_field_tag :description, @product.description %>
   </div>
 
 
-  <div>
+  <div class="field">
     <%=label_tag :inventory %>
     <%=text_field_tag :inventory, @product.inventory %>
   </div>

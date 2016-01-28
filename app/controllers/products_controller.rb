@@ -78,18 +78,6 @@ class ProductsController < ApplicationController
     redirect_to :action => :index, status: 303
   end
 
-  def buy
-    @product = Product.find(params[:id])
-    @product.update({inventory: @product.inventory -= 1})
-
-    if @product.inventory <= 0
-      @product.update({in_stock: 0})
-    end
-
-    flash[:success] = "Thank you! Amount of #{@product.name} remaining in inventory is: #{@product.inventory}"
-    redirect_to '/'
-  end
-
   def search
     @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     render :index

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'products/:id/edit' => 'products#edit'
   patch 'products/:id' => 'products#update'
   delete 'products/:id' => 'products#destroy'
-  patch '/products/:id/buy' => 'products#buy'
   get '/test' => 'products#home'
   post "/search" => 'products#search'
 
@@ -19,5 +18,10 @@ Rails.application.routes.draw do
 
   get '/images/new' => 'images#new'
   post '/images' => 'images#create'
+
+  post '/orders' => 'orders#create' 
+  get '/orders/:id' => 'orders#show'
+
+
    
 end

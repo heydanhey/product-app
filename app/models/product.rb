@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 
+  has_many :orders
   belongs_to :supplier
   has_many :images
 
@@ -12,11 +13,11 @@ class Product < ActiveRecord::Base
   end
 
   def tax
-    "$%.2f" % (price.to_f * 0.09)
+    price.to_f * 0.09
   end
 
   def total
-    "$#{price.to_f + (price.to_f * 0.09)}"
+    price.to_f + (price.to_f * 0.09)
   end
 
   def price_display
@@ -25,9 +26,9 @@ class Product < ActiveRecord::Base
 
   def in_stock?
     if inventory <= 0
-      "Sorry we're all out."
+      false
     else
-      "This product is in stock! Amount in inventory: #{inventory}"
+      true
     end
   end
 

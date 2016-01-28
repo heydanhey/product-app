@@ -8,7 +8,7 @@
     <h3><%= @product.name %></h3>
     <p><%= @product.description %></p>
     <p>Price: <%= number_to_currency(@product.price) %></p>
-    <p>Tax: <%= @product.tax %></p>
+    <p>Tax: <%= number_to_currency(@product.tax) %></p>
     <h4>Total: <%= @product.total %></h4>
     <p>Supplier Name: <%= @product.supplier.name %>, Inventory: <%= @product.inventory %></p>
 

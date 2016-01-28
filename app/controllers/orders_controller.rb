@@ -7,6 +7,11 @@ class OrdersController < ApplicationController
                           subtotal: params[:subtotal],
                           tax: params[:tax],
                           total: params[:total])
+    if @order.quantity > 1
+      @order.update({subtotal: @order.quantity * @order.subtotal,
+                      tax: @order.tax * @order.quantity})
+      @order.update({total: @order.subtotal + @order.tax})
+    end
 
     @product = Product.find(@order.product_id)
     @product.update({inventory: @product.inventory -= @order.quantity})

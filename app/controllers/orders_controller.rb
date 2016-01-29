@@ -1,17 +1,19 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = Order.create(quantity: params[:quantity],
+    price = Product.find(params[:product_id]).price
+
+    @order = Order.new(quantity: params[:quantity],
                           user_id: current_user.id,
-                          product_id: params[:product_id],
-                          subtotal: params[:subtotal],
-                          tax: params[:tax],
-                          total: params[:total])
-    if @order.quantity > 1
-      @order.update({subtotal: @order.quantity * @order.subtotal,
-                      tax: @order.tax * @order.quantity})
-      @order.update({total: @order.subtotal + @order.tax})
-    end
+                          product_id: params[:product_id])
+
+    @order.subtotal = @order.calc_subtotal(price)
+
+    @order.tax      = @order.calc_tax(0.09)
+
+    @order.total    = @order.calc_total
+
+    @order.save
 
     @product = Product.find(@order.product_id)
     @product.update({inventory: @product.inventory -= @order.quantity})

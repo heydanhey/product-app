@@ -6,8 +6,10 @@
 <p> Quantity: <%= @order.quantity %> </p>
 <p> Unit Price: <%= number_to_currency(@order.product.price) %> </p>
 <p> Subtotal: <%= number_to_currency(@order.subtotal) %> </p>
+<p> Tax: <%= number_to_currency(@order.tax) %> </p>
 <p> Total Price: <%= number_to_currency(@order.total) %> </p>
-<p> Amount left in stock: <%= @order.product.inventory %>
+<p> Amount left in stock: <%= @order.product.inventory %></p>
+<p>Order No: <%= @order.id %> </p>
 <p> Thanks! </p>
 
 

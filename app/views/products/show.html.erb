@@ -1,7 +1,12 @@
+
 <div id="show_image">
-    <% @product.images.each do |image| %>
-        <img src="<%= image.image %>" class="img-responsive">
-    <% end %>
+    <div class="row">
+        <% @product.images.each do |image| %>
+            <div class="col-sm-6">
+                <img src="<%= image.image %>" class="img-responsive">
+            </div>
+        <% end %>
+    </div>
 </div>
 
 <div id="show-text">
@@ -25,15 +30,6 @@
 
               <div class="input-group">
                 <%=hidden_field_tag :product_id, @product.id, class: "form-control" %>
-              </div>
-              <div class="input-group">
-                <%=hidden_field_tag :subtotal, @product.price, class: "form-control" %>
-              </div>
-              <div class="input-group">
-                <%=hidden_field_tag :tax, @product.tax, class: "form-control" %>
-              </div>
-              <div class="input-group">
-                <%=hidden_field_tag :total, @product.total, class: "form-control" %>
               </div>
             
               <p><%= submit_tag "Buy Now", :class => "btn btn-primary", :role => "button" %></p>

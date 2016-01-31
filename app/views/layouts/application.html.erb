@@ -25,10 +25,26 @@
             <li><a href="/users/sign_in">log in</a></li>
             <li><a href="/users/sign_up">sign up</a></li>
           <% end %>  
-            <li><a href="/products?discount=10.00">discount</a></li>
-            <li><a href="/products?random=id">random</a></li>
-          <% if current_user %>
-            <li><a href="/products/new">new</a></li>
+
+            <!-- CATEGORY FILTER -->
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">filter</a>
+              <ul class="dropdown-menu">
+
+              <% Category.all.each do |category|%>
+                <li><%= link_to category.name, "/?category=#{category.name}" %></li>
+              <% end %>
+
+              <li><a href="/products?discount=10.00">discount</a></li>
+              <% if current_user %>
+                <li><a href="/products/new">new</a></li>
+              <% end %>
+              </ul>
+
+          <%= form_tag "/search", class: "navbar-form navbar-left" do %>   
+          <%= text_field_tag :search, nil, placeholder: "Search Products" %>
+          <%= submit_tag "Search Galaxy!!!" %>
           <% end %>
         </ul>
       </div>

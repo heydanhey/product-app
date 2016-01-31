@@ -36,6 +36,11 @@
 <div id="show-text">
     <h3><%= @product.name %></h3>
     <p><%= @product.description %></p>
+    
+    <% @product.categories.each do |name| %>
+        <p> <%= name.name %> </p>
+    <% end %>
+        
     <p>Price: <%= number_to_currency(@product.price) %></p>
     <p>Tax: <%= number_to_currency(@product.tax) %></p>
     <h4>Total: <%= @product.total %></h4>

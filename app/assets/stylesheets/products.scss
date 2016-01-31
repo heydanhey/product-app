@@ -56,15 +56,20 @@ nav li {
   padding-bottom: 32px;  
 }
 
-/* nav link */
-nav a, nav a:visited {
-  color: #fff;
+.navbar-form {
+  padding-top: 20px;
+  padding-bottom: 20px;  
 }
 
+/* nav link */
+// nav a, nav a:visited {
+//   color: #fff;
+// }
+
 /* selected nav link */
-nav a.selected, nav a:hover {
-  color: #98C0CC;
-}
+// nav a.selected, nav a:hover {
+//   color: #98C0CC;
+// }
 
 #logo {
   text-align: center;

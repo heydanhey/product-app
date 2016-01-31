@@ -4,7 +4,7 @@
 
     <% @products.each do |product| %>
 
-      <div class="col-md-3 col-fixed">
+      <div class="col-sm-3">
 
        <a href="products/<%= product.id %>"><img src=<%= product.images[0].image %> alt=<%= product.name %> ></a>
           <h3><%= product.name %></h3>

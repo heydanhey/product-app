@@ -1,33 +1,39 @@
-<div id="box">
+<div class="container">
 
-<div id="show-text">
+  <h2>Add a new product to the store</h2>
 
-<h1>Add new</h1>
+  <div class="form">
 
-<%=form_tag '/products', method: :post do %>
+  <%=form_tag '/products', method: :post do %>
 
-  <div class="input-group">
-    <%=label_tag :name %>
-    <%=text_field_tag :name, nil, class: "form-control" %>
-  </div>
+    <div class="input-group">
+      <%=label_tag :name %>
+      <%=text_field_tag :name, nil, class: "form-control" %>
+    </div>
 
-  <div class="input-group">
-    <%=label_tag :price %>
-    <%=text_field_tag :price, nil, class: "form-control" %>
-  </div>
+    <div class="input-group">
+      <%=label_tag :price %>
+      <%=text_field_tag :price, nil, class: "form-control" %>
+    </div>
 
-  <div class="input-group">
-  <p>Supplier: </p> <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name, class: "form-control" %>
-  </div>
+    <div class="input-group">
+      <%=label_tag :supplier %>
+      <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name, {:style => "width:200px"}, class: "form-control" %>
+    </div>
 
-  <div class="input-group">
-    <%=label_tag :description %>
-    <%=text_field_tag :description, nil, class: "form-control" %>
-  </div>
+    <div class="input-group">
+      <%=label_tag :description %>
+      <%=text_field_tag :description, nil, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= submit_tag "Send", class: "input-group btn btn-default"%>
-  </div>
+    <div>
+      <%= submit_tag "Send", class: "btn btn-default" %>
+    </div>
+
   <% end %>
+
 </div>
+
 </div>
+
+

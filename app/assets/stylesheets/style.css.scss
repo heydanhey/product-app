@@ -5,24 +5,31 @@ body {
   margin-top: 0px;
 }
 
+.carousel-inner img {
+  max-height: 275px;
+  background-color: white;
+  margin: auto;
+}
+
 h6 {
   color: white;
 }
 
-.col-fixed {
+.col-xs-6 {
   background-color: white;
-  margin: 25px 50px;
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 525px;
-  max-height: 525px;
+  margin: 25px 25px;
 }
 
-.col-fixed-2 {
+.col-sm-3 {
   background-color: white;
-  margin: 25px 50px;
-  min-width: 300px;
-  max-width: 300px;
+  margin: 25px 45px;
+  border-style: solid;
+  border-color: #98C0CC
+}
+
+.col-sm-3 img {
+  display: block;
+  margin: auto;
 }
 
 /* centered columns styles */
@@ -30,15 +37,10 @@ h6 {
     text-align: center;
 }
 
-.col-centered {
-    display: inline-block;
-    float: none;
-    /* reset the text-align */
-    text-align: left;
-    /* inline-block space fix */
-    margin-right: -4px;
-}
-
 .input-group {
   padding: 5px;
+}
+
+.form {
+  max-width: 200px;
 }

@@ -5,62 +5,55 @@ a.none {
   text-decoration: none;
 }
 
-.container {
-  max-width: 800px;
-  margin-bottom: 0px;
-}
-
 header {
-  max-width: 800px;
-  margin: auto;
+  // max-width: 80%;
+  // margin: auto;
   background-color: white;
-  padding: 0 0 7px 0;
+  // padding: 0 0 7px 0;
 }
 
 .logo {
-  display: block;
-  margin: auto;
+  width: 200px;
 }
 
-.jumbotron {
-  background-image: url("http://www.heyelevator.com/acltc/solarsys.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
+.navbar {
   background-color: white;
-  color: white;
-  width: 100%;
-  margin: auto;
-  max-width: 800px;
+  height: 83px;
 }
+
 
 /****************
 NAVIGATION BAR
 ****************/
 
 nav {
-  text-align: center;
-  max-width: 800px;
-  padding: 10px;
-  margin: auto;
-  background: #4D4D4D; 
-  font-size: 12px;
-  color: #98C0CC;
+  // text-align: center;
+  // max-width: 800px;
+  // padding: 10px;
+  // margin: auto;
+  // background: #4D4D4D; 
+  // font-size: 12px;
+  // color: #98C0CC;
+  height: 83px;
 }
 
 nav ul {
-  list-style: none;
-  margin: 0 10px;
-  padding: 0;
+  // list-style: none;
+  // margin: 0 10px;
+  // padding: 0;
+  // height: 83px;
 }
 
 nav li {
-  display: inline-block; 
+  // display: inline-block;
+  // height: 83px; 
 }
 
-nav a {
-  color: white;
-  font-weight: 800;
-  padding: 15px 25px;  
+.navbar li a {
+  // color: white;
+  // font-weight: 800;
+  padding-top: 32px;
+  padding-bottom: 32px;  
 }
 
 /* nav link */

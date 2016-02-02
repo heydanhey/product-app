@@ -50,7 +50,7 @@
 
         <% if current_user %>
 
-            <%=form_tag '/orders', method: :post do %>
+            <%=form_tag '/cart', method: :post do %>
 
               <div class="input-group">
                 <%=label_tag :quantity %>
@@ -61,7 +61,7 @@
                 <%=hidden_field_tag :product_id, @product.id, class: "form-control" %>
               </div>
             
-              <p><%= submit_tag "Buy Now", :class => "btn btn-primary", :role => "button" %></p>
+              <p><%= submit_tag "Add to Cart", :class => "btn btn-primary", :role => "button" %></p>
 
             <% end %>
         <% else %>

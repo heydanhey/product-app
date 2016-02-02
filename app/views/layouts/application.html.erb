@@ -19,7 +19,7 @@
           </a>
           <li><a href="/">shop</a></li>
           <% if current_user %>
-            <li><a href="/">[signed in as: <%= current_user.email %>]</a></li>
+            <li><a href="/"><span class="glyphicon glyphicon-user" aria-hidden="true"> <%= current_user.email %></a></li>
             <li><%= link_to "sign out", "/users/sign_out", method: :delete %></li>
           <% else %>
             <li><a href="/users/sign_in">log in</a></li>
@@ -42,6 +42,7 @@
 
           <% if current_user %>
             <li><a href="/products/new">new</a></li>
+            <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></a></li>
           <% end %>
 
           <%= form_tag "/search", class: "navbar-form navbar-left" do %>   

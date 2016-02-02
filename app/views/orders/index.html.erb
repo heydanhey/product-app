@@ -1,0 +1,24 @@
+<h1> All Orders </h1>
+
+<table class="table">
+  <tr>
+    <th>ORDER ID</th>
+    <th>USER</th>
+    <th>TOTAL QUANTITY</th>
+    <th>SUBTOTAL</th>
+    <th>TAX</th>
+    <th>TOTAL</th>
+    <th>DATE</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td> <%= order.id %> </td>
+      <td> <%= order.user.email %> </td>
+      <td> <%= order.quantity %> </td>
+      <td> <%= number_to_currency(order.subtotal) %> </td>
+      <td> <%= number_to_currency(order.tax) %> </td>
+      <td> <%= number_to_currency(order.total) %> </td>
+      <td> <%= order.friendly_time %> </td>
+      <% end %>
+    </tr>
+  </table>

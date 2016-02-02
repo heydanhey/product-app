@@ -1,22 +1,26 @@
-<div id="show-text">
+
 <h3> Thank you for your Order! </h3>
-<p> Product: <%= @order.product.name %> </p>
-<p><%= image_tag @order.product.images[0].image %></p>
-<p> Purchased by: <%= @order.user.email %> at <%= @order.friendly_time %></p>
-<p> Quantity: <%= @order.quantity %> </p>
-<p> Unit Price: <%= number_to_currency(@order.product.price) %> </p>
-<p> Subtotal: <%= number_to_currency(@order.subtotal) %> </p>
-<p> Tax: <%= number_to_currency(@order.tax) %> </p>
-<p> Total Price: <%= number_to_currency(@order.total) %> </p>
-<p> Amount left in stock: <%= @order.product.inventory %></p>
-<p>Order No: <%= @order.id %> </p>
-<p> Thanks! </p>
 
+<table class="table">
+  <tr>
+    <th>PRODUCT NAME</th>
+    <th>UNIT PRICE</th>
+    <th>QUANTITY</th>
+  </tr>
+  <% @carted_products.each do |carted_product| %>
+    <tr>
+      <td><%= carted_product.product.name %></td>
+      <td><%= number_to_currency(carted_product.product.price) %></td>
+      <td><%= carted_product.quantity %></td>
+    </tr>
+  <% end %>
 
+<tr> Purchased by: <%= @order.user.email %> at <%= @order.friendly_time %></p>
 
+<tr> <td> Subtotal: <%= number_to_currency(@order.subtotal) %> </td></tr>
+<tr> <td> Tax: <%= number_to_currency(@order.tax) %> </td></tr>
+<tr> <td> <h4> Total Price: <%= number_to_currency(@order.total) %> </h4></td></tr>
+<tr> <td> Order No: <%= @order.id %> </td></tr>
+<tr> <td> Thanks! </td></tr>
 
-
-
-
-
-</div>
+</table>

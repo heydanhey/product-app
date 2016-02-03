@@ -9,25 +9,18 @@ class CartedProductsController < ApplicationController
                                             quantity: params[:quantity],
                                             status: "carted"
                                             })
+    flash[:success] = "#{@carted_product.product.name} added to cart."
     redirect_to "/cart/"
   end
 
   def index
-    @carted_products = CartedProduct.where(user_id: current_user.id)
-    @carted_products = @carted_products.where(status: "carted")
+    @carted_products = CartedProduct.where(user_id: current_user.id, status: "carted")
     if @carted_products.empty?
       flash[:success] = "Your Cart is empty."
       redirect_to '/'
     end
 
-    # @cartred_products = CartedProduct.where('user_id LIKE ? AND status LIKE?', current_user.id, "carted")
-
-    @total_quantity = 0
-    @subtotal = 0
-    @carted_products.each do |carted_product|
-      @total_quantity += carted_product.quantity
-      @subtotal += carted_product.product.price
-    end
+    #@cartred_products = CartedProduct.where('user_id LIKE ? AND status LIKE?', current_user.id, "carted")
   end
 
   def destroy

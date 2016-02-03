@@ -4,7 +4,6 @@
   <tr>
     <th>ORDER ID</th>
     <th>USER</th>
-    <th>TOTAL QUANTITY</th>
     <th>SUBTOTAL</th>
     <th>TAX</th>
     <th>TOTAL</th>
@@ -12,9 +11,8 @@
   </tr>
   <% @orders.each do |order| %>
     <tr>
-      <td> <%= order.id %> </td>
+      <td> <a href="/orders/<%= order.id %>"> <%= order.id %> </a></td>
       <td> <%= order.user.email %> </td>
-      <td> <%= order.quantity %> </td>
       <td> <%= number_to_currency(order.subtotal) %> </td>
       <td> <%= number_to_currency(order.tax) %> </td>
       <td> <%= number_to_currency(order.total) %> </td>
@@ -22,3 +20,4 @@
       <% end %>
     </tr>
   </table>
+

@@ -37,14 +37,16 @@
     <h3><%= @product.name %></h3>
     <p><%= @product.description %></p>
     
+    <h6> Descriptive Tags:
     <% @product.categories.each do |name| %>
-        <p> <%= name.name %> </p>
-    <% end %>
+        <%= name.name %>
+    <% end %> </h6>
         
-    <p>Price: <%= number_to_currency(@product.price) %></p>
-    <p>Tax: <%= number_to_currency(@product.tax) %></p>
-    <h4>Total: <%= @product.total %></h4>
-    <p>Supplier Name: <%= @product.supplier.name %>, Inventory: <%= @product.inventory %></p>
+    <h6>Price: <%= number_to_currency(@product.price) %></h6>
+    <h6>Tax: <%= number_to_currency(@product.tax) %></h6>
+    <h4>Total: <%= number_to_currency(@product.total) %></h4>
+    <h6>Supplier Name: <%= @product.supplier.name %> </h6>
+    <h6>Inventory: <%= @product.inventory %></h6>
 
     <% if @product.in_stock? %>
 

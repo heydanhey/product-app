@@ -11,17 +11,13 @@ body {
   margin: auto;
 }
 
-h6 {
-  color: white;
-}
-
 .col-xs-6 {
   background-color: white;
   margin: 25px 25px;
 }
 
 .col-sm-3 {
-  background-color: white;
+  //background-color: white;
   margin: 25px 45px;
   border-style: solid;
   border-color: #98C0CC
@@ -45,6 +41,6 @@ h6 {
   max-width: 200px;
 }
 
-// .dropdown a {
-//   max-width: 100px;
-// }
+.order-image {
+  max-width: 50px;
+}

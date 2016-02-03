@@ -1,9 +1,15 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = Order.new(quantity: params[:quantity],
-                          user_id: current_user.id,
-                          subtotal: params[:subtotal])
+    @carted_products = CartedProduct.where(user_id: current_user.id).where(status: "carted")
+
+    subtotal = 0
+    @carted_products.each do |carted_product|
+      subtotal += carted_product.product.price * carted_product.quantity
+    end
+
+    @order = Order.new(user_id: current_user.id,
+                          subtotal: subtotal)
 
     @order.tax      = @order.calc_tax(0.09)
 
@@ -11,8 +17,6 @@ class OrdersController < ApplicationController
 
     @order.save
 
-    @carted_products = CartedProduct.where(user_id: current_user.id)
-    @carted_products = @carted_products.where(status: "carted")
 
     @carted_products.each do |carted_product|
       carted_product.status = "purchased"
@@ -34,11 +38,10 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user.id)
   end
 
   def show
     @order = Order.find(params[:id])
-    @carted_products = CartedProduct.where(order_id: @order.id)
   end
 end

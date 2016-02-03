@@ -3,24 +3,29 @@
 
 <table class="table">
   <tr>
+    <th width="100px">IMAGE</th>
     <th>PRODUCT NAME</th>
     <th>UNIT PRICE</th>
     <th>QUANTITY</th>
   </tr>
-  <% @carted_products.each do |carted_product| %>
+  <% @order.carted_products.each do |carted_product| %>
     <tr>
+      <td><img src="<%= carted_product.product.images[0].image %>", class="order-image"></td>
       <td><%= carted_product.product.name %></td>
       <td><%= number_to_currency(carted_product.product.price) %></td>
       <td><%= carted_product.quantity %></td>
     </tr>
   <% end %>
-
-<tr> Purchased by: <%= @order.user.email %> at <%= @order.friendly_time %></p>
-
-<tr> <td> Subtotal: <%= number_to_currency(@order.subtotal) %> </td></tr>
-<tr> <td> Tax: <%= number_to_currency(@order.tax) %> </td></tr>
-<tr> <td> <h4> Total Price: <%= number_to_currency(@order.total) %> </h4></td></tr>
-<tr> <td> Order No: <%= @order.id %> </td></tr>
-<tr> <td> Thanks! </td></tr>
-
 </table>
+
+<p>Purchased by: <%= @order.user.email %> at <%= @order.friendly_time %></p>
+
+  <h6> Subtotal: <%= number_to_currency(@order.subtotal) %> </h6>
+  <h6> Tax: <%= number_to_currency(@order.tax) %> </h6>
+  <h4> Total Price: <%= number_to_currency(@order.total) %> </h4>
+  <h6> Order No: <%= @order.id %> </h6>
+  <h4> Thanks! </h4>
+
+
+
+<%= link_to "View Order History", "/orders", class: "btn btn-default" %>

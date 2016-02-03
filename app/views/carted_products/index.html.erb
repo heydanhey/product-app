@@ -4,6 +4,7 @@
   <tr>
     <th>STATUS</th>
     <th>PRODUCT ID</th>
+    <th>PRODUCT NAME</th>
     <th>QUANTITY</th>
     <th>USER ID</th>
     <th>ACTION</th>
@@ -12,6 +13,7 @@
   <tr>
     <td><%= carted_product.status %></td>
     <td><%= carted_product.product_id %></td>
+    <td><%= carted_product.product.name %></td>
     <td><%= carted_product.quantity %></td>
     <td><%= carted_product.user_id %></td>
     <td> <%= link_to "Delete", "/cart/#{carted_product.id}", method: :patch, data:{confirm: "Are You Sure"} %> </td>
@@ -19,22 +21,8 @@
 <% end %>
 </table>
 
-<h4> Current subtotal: <%= number_to_currency(@subtotal) %> </h4>
-
 <%=form_tag '/orders', method: :post do %>
-
-  <div class="input-group">
-    <%=hidden_field_tag :quantity, @total_quantity, class: "form-control" %>
-  </div>
-
-  <div class="input-group">
-    <%=hidden_field_tag :subtotal, @subtotal, class: "form-control" %>
-  </div>
-
-  <div class="input-group">
-    <%=hidden_field_tag :user_id, current_user.id, class: "form-control" %>
-  </div>
-            
-  <%= submit_tag "Buy Now", :class => "btn btn-primary", :role => "button" %>
+           
+  <%= submit_tag "Buy Now", :class => "btn btn-primary", :role => "button" %> <a href="/" class="btn btn-default" role="button">Keep Shopping</a>
 
 <% end %>

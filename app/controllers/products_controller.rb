@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @products = Product.all
 
@@ -36,21 +38,32 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by(id: params[:id])
+    @carted_product = CartedProduct.new unless @carted_product 
   end
 
   def new
+    @product = Product.new
+
   end
 
   def create
-    @product = Product.create({name: params[:name],
+    @product = Product.new({name: params[:name],
                               price: params[:price],
-                              supplier_id: params[:supplier][supplier_id],
+                              supplier_id: params[:supplier][:supplier_id],
                               description: params[:description],
-                              inventory: params[:inventory],
-                              in_stock: params[:in_stock]})
-
-    flash[:success] = "Product Created"
-    redirect_to "/"
+                              inventory: 100,
+                              in_stock: 1})
+    if @product.save
+      if params[:image]
+        Image.create({product_id: @product.id, image: params[:image]})
+      else
+        Image.create({product_id: @product.id, image: "http://shmector.com/preview/nature/cartoon-planet-vector_250x250.png"})
+      end
+      flash[:success] = "Product Created"
+      redirect_to "/"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -59,19 +72,26 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update({name: params[:name],
+
+    if @product.update({name: params[:name],
                               price: params[:price],
                               description: params[:description],
                               inventory: params[:inventory]})
 
-    if params[:inventory].to_i <= 0
-      @product.update({in_stock: false})
-    else
-      @product.update({in_stock: true})
-    end
+      if params[:inventory].to_i <= 0
+        @product.update({in_stock: false})
+      else
+        @product.update({in_stock: true})
+      end
 
-    flash[:success] = "Product Updated"
-    redirect_to "/products/#{@product.id}"
+      flash[:success] = "Product Updated"
+      redirect_to "/products/#{@product.id}"
+
+    else
+
+      render :edit
+
+    end
   end
 
   def destroy

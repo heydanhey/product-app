@@ -1,3 +1,14 @@
+<% if @carted_product.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@carted_product.errors.count, "error") %> prohibited this product from being saved:</h2>
+ 
+    <ul>
+    <% @carted_product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div id="show_image">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -56,7 +67,7 @@
 
               <div class="input-group">
                 <%=label_tag :quantity %>
-                <%=text_field_tag :quantity, nil, class: "form-control" %>
+                <%=text_field_tag :quantity, @carted_product.quantity, class: "form-control" %>
               </div>
 
               <div class="input-group">
@@ -73,7 +84,7 @@
         <p> SOLD OUT! </p>
     <% end %>
 
-    <% if current_user %>
+    <% if user_signed_in? && current_user.admin %>
         <h5>
             <a href="https://en.wikipedia.org/wiki/<%= @product.name %>_(planet)" class="btn btn-default" role="button">More Details</a>
 

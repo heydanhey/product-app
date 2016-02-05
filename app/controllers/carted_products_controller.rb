@@ -1,16 +1,25 @@
 class CartedProductsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def new
+    @carted_product = CartedProduct.new
   end
 
   def create
-    @carted_product = CartedProduct.create({user_id: current_user.id, 
+    @carted_product = CartedProduct.new({user_id: current_user.id, 
                                             product_id: params[:product_id],
                                             quantity: params[:quantity],
                                             status: "carted"
                                             })
-    flash[:success] = "#{@carted_product.product.name} added to cart."
-    redirect_to "/cart/"
+    if @carted_product.save
+      session[:cart_count] = nil
+      flash[:success] = "#{@carted_product.product.name} added to cart."
+      redirect_to "/cart/"
+    else
+      @product = Product.find(params[:product_id])
+      render "products/show"
+    end
   end
 
   def index
@@ -26,6 +35,7 @@ class CartedProductsController < ApplicationController
   def destroy
     @carted_product = CartedProduct.find(params[:id])
     @carted_product.update({status: "removed"})
+    session[:cart_count] = nil
 
     flash[:warning] = "Product Removed From Cart"
     redirect_to "/cart"

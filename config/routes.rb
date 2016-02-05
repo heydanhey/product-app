@@ -25,6 +25,6 @@ Rails.application.routes.draw do
 
   post '/cart' => 'carted_products#create' 
   get '/cart' => 'carted_products#index'
-  patch 'cart/:id' => 'carted_products#destroy'
+  delete 'cart/:id' => 'carted_products#destroy'
    
 end

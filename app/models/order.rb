@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  
+
   has_many :carted_products
   has_many :products, through: :carted_products
 
@@ -19,4 +19,6 @@ class Order < ActiveRecord::Base
   def calc_total
     subtotal + tax
   end
+
+
 end

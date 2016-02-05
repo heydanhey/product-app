@@ -40,9 +40,12 @@
               </ul>
             </li>
 
-          <% if current_user %>
+          <% if user_signed_in? && current_user.admin %>
             <li><a href="/products/new"><span class="glyphicon glyphicon-plus" aria-hidden="true"></a></li>
-            <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></a></li>
+          <% end %>
+
+           <% if current_user %>
+            <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> <%= @cart_count %></a></li>
           <% end %>
 
           <%= form_tag "/search", class: "navbar-form navbar-left" do %>   
@@ -60,7 +63,7 @@
 
     <div class="container">
       <% flash.each do |name, message| %>
-        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+        <div class="alert alert-<%= name == "alert" || name == "notice" ? "warning" : "name" %> alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= message %>
           </div>

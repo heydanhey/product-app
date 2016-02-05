@@ -16,7 +16,7 @@
     <td><%= carted_product.product.name %></td>
     <td><%= carted_product.quantity %></td>
     <td><%= carted_product.user_id %></td>
-    <td> <%= link_to "Delete", "/cart/#{carted_product.id}", method: :patch, data:{confirm: "Are You Sure"} %> </td>
+    <td> <%= link_to "Delete", "/cart/#{carted_product.id}", method: :delete, data:{confirm: "Are You Sure"} %> </td>
   </tr>
 <% end %>
 </table>
